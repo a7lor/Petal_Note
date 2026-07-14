@@ -487,69 +487,55 @@ body{
 @media (max-width:600px){
 
     body{
-
         overflow:auto;
-
     }
 
     .wrapper{
-
         padding:0;
-
     }
 
     .phone{
-
         width:100%;
-
         min-height:100vh;
-
         height:auto;
-
         border-radius:0;
-
         box-shadow:none;
-
-        padding:60px 30px;
-
+        padding:50px 20px;
     }
 
+    /* 写真・ロゴを大きく */
     .logo{
-
-        width:100px;
-
-        margin-bottom:25px;
-
+        width:160px;
+        margin-bottom:30px;
     }
 
     .phone h1{
-
         font-size:42px;
-
     }
 
     .flower{
-
-        font-size:20px;
-
+        font-size:22px;
     }
 
     .catch{
-
-        font-size:15px;
-
+        font-size:16px;
         line-height:1.9;
-
     }
 
+    /* ハンバーガーメニューを大きく・見やすく */
     .menu-btn{
-
-        top:20px;
-
-        left:20px;
-
-        font-size:16px;
-
+        top:15px;
+        left:15px;
+        width:55px;
+        height:55px;
+        font-size:28px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:#fff;
+        border-radius:50%;
+        box-shadow:0 3px 10px rgba(0,0,0,0.2);
+        z-index:1000;
     }
 
 }
