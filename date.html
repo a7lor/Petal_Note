@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petal Note | Date</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="date.css">
+</head>
+
+<body>
+
+
+<!-- ===== 背景 ===== -->
+<div class="background"></div>
+
+
+<!-- ===== ハンバーガー ===== -->
+<button id="menuBtn" class="menu-btn">
+
+☰
+
+</button>
+
+
+<!-- ===== オーバーレイ ===== -->
+<div id="overlay"></div>
+
+
+<!-- ===== サイドメニュー ===== -->
+
+
+<nav id="sideMenu">
+
+
+<div class="menu-header">
+
+<h2>Petal Note</h2>
+
+</div>
+
+
+<a href="index.html">Home</a>
+<a href="record.html">Record</a>
+<a href="stamp.html">Stamp Book</a>
+<a href="mypage.html">My Page</a>
+
+
+<button id="closeBtn" class="close-btn">
+
+CLOSE
+
+</button>
+</nav>
+
+
+<!-- ===== メイン ===== -->
+<main class="container">
+
+
+<!-- 写真 -->
+<div class="photo-box">
+
+<img id="selectedImage" src="" alt="">
+
+</div>
+
+
+
+<!-- 花選択 -->
+<section class="flower-select">
+
+
+<h2>
+花を選ぶ
+</h2>
+
+
+<div class="flower-grid">
+
+
+<button class="flower-btn" onclick="selectFlower('桜')">
+桜
+</button>
+
+<button class="flower-btn" onclick="selectFlower('ひまわり')">
+ひまわり
+</button>
+
+<button class="flower-btn" onclick="selectFlower('紫陽花')">
+紫陽花
+</button>
+
+<button class="flower-btn" onclick="selectFlower('シロツメクサ')">
+シロツメクサ
+</button>
+
+<button class="flower-btn" onclick="selectFlower('ツツジ')">
+ツツジ
+</button>
+
+<button class="flower-btn" onclick="selectFlower('菜の花')">
+菜の花
+</button>
+
+<button class="flower-btn" onclick="selectFlower('たんぽぽ')">
+たんぽぽ
+</button>
+
+<button class="flower-btn" onclick="selectFlower('ネモフィラ')">
+ネモフィラ
+</button>
+
+<button class="flower-btn" onclick="selectFlower('コスモス')">
+コスモス
+</button>
+
+<button class="flower-btn" onclick="selectFlower('バラ')">
+バラ
+</button>
+
+<button class="flower-btn" onclick="selectFlower('スズラン')">
+スズラン
+</button>
+
+<button class="flower-btn" onclick="selectFlower('チューリップ')">
+チューリップ
+</button>
+
+<button class="flower-btn" onclick="selectFlower('スミレ')">
+スミレ
+</button>
+
+
+</div>
+
+
+<div id="selectedFlower" class="selected-flower">
+
+選択されていません
+
+</div>
+</section>
+
+
+<!-- ノート -->
+<section class="note">
+
+<h2>
+記録ノート
+</h2>
+
+
+<input type="text" placeholder="日時（例：2026/04/01）">
+
+<input type="text" placeholder="場所">
+
+<textarea placeholder="メモを残そう..."></textarea>
+
+
+
+</section>
+
+
+<button class="save-btn" onclick="goNext()">
+記録する
+</button>
+
+
+</main>
+
+
+<script>
+
+
+// メニュー
+
+const menu =
+document.getElementById("sideMenu");
+
+
+const button =
+document.getElementById("menuBtn");
+
+
+const overlay =
+document.getElementById("overlay");
+
+
+const closeBtn =
+document.getElementById("closeBtn");
+
+
+button.addEventListener("click",()=>{
+
+
+menu.classList.add("open");
+
+
+overlay.classList.add("show");
+
+
+button.style.display="none";
+
+
+});
+
+
+
+
+
+closeBtn.addEventListener("click",()=>{
+
+
+menu.classList.remove("open");
+
+
+overlay.classList.remove("show");
+
+
+button.style.display="block";
+
+
+});
+
+
+
+
+
+overlay.addEventListener("click",()=>{
+
+
+menu.classList.remove("open");
+
+
+overlay.classList.remove("show");
+
+
+button.style.display="block";
+
+
+});
+
+
+
+
+
+
+
+// 画像表示
+
+
+const img =
+localStorage.getItem("selectedImage");
+
+
+
+if(img){
+
+
+document.getElementById("selectedImage").src = img;
+
+
+}
+
+
+
+
+
+
+// 花選択
+
+
+let selected="";
+
+function selectFlower(name){
+
+selected=name;
+
+document.getElementById("selectedFlower").textContent =
+
+"選択中の花： " + name;
+
+
+}
+
+
+
+
+
+
+// 次へ
+
+function goNext(){
+if(selected===""){
+alert("花を選択してください");
+return;
+}
+
+
+localStorage.setItem(
+
+"selectedFlower",
+
+selected
+
+);
+
+window.location.href="get.html";
+
+}
+
+
+</script>
+
+
+
+</body>
+</html>

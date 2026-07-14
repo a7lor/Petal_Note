@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Petal Note | My Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="mypage.css">
+
+</head>
+
+
+<body>
+
+
+<!-- メニューボタン -->
+<div id="menuBtn" onclick="toggleMenu()">▽</div>
+
+
+<!-- メニュー -->
+<nav id="menu" class="menu">
+
+    <a href="index.html">Home</a>
+
+    <a href="record.html">Record</a>
+
+    <a href="stamp.html">Stamp</a>
+
+</nav>
+
+
+
+<main class="container">
+
+
+    <div class="message-box">
+
+        <h1>My Page</h1>
+
+        <p>
+            準備中です🌸
+        </p>
+
+        <span>
+            もう少し待っていてください♪
+        </span>
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+
+function toggleMenu(){
+
+    document.getElementById("menu")
+    .classList.toggle("show");
+
+}
+
+
+
+document.addEventListener("click",function(e){
+
+
+    const menu=document.getElementById("menu");
+
+    const btn=document.getElementById("menuBtn");
+
+
+    if(!menu.contains(e.target) && !btn.contains(e.target)){
+
+        menu.classList.remove("show");
+
+    }
+
+
+});
+
+
+</script>
+
+
+
+</body>
+</html>

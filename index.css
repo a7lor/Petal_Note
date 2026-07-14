@@ -1,0 +1,705 @@
+/* =========================================
+   Petal Note
+   index.css
+========================================= */
+
+
+/* ---------- リセット ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* ---------- 全体 ---------- */
+
+body{
+
+    font-family:"Zen Maru Gothic",sans-serif;
+
+    background:#f7f4ee;
+
+    color:#444;
+
+    overflow:hidden;
+
+}
+
+
+
+/* ---------- 背景 ---------- */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,250,245,.35),
+            rgba(255,250,245,.35)
+        ),
+        url("images/background.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    z-index:-2;
+
+    animation:bgZoom 25s ease-in-out infinite alternate;
+
+}
+
+
+.background::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    backdrop-filter:blur(2px);
+
+}
+
+
+
+/* ---------- 真ん中 ---------- */
+
+.wrapper{
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+/* ---------- スマホカード ---------- */
+
+.phone{
+
+    width:390px;
+
+    height:760px;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:38px;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.12),
+
+        0 8px 20px rgba(0,0,0,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:45px;
+
+    position:relative;
+
+}
+
+
+
+/* ---------- ロゴ ---------- */
+
+.logo{
+
+    width:390px;
+
+    height:auto;
+
+    margin-bottom:30px;
+
+    animation:fadeUp 1.2s ease;
+
+}
+
+
+
+/* ---------- タイトル ---------- */
+
+.phone h1{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:54px;
+
+    color:#7d6958;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+
+
+
+
+/* ---------- キャッチコピー ---------- */
+
+.catch{
+
+    margin-top:12px;
+
+    line-height:2;
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+
+
+/* =========================================
+   ハンバーガーメニュー
+========================================= */
+
+.menu-btn{
+
+    position:fixed;
+
+    top:35px;
+
+    left:35px;
+
+    background:none;
+
+    border:none;
+
+    font-size:30px;
+
+    letter-spacing:2px;
+
+    color:#6e5d4f;
+
+    cursor:pointer;
+
+    z-index:1000;
+
+    transition:.3s;
+
+}
+
+
+.menu-btn:hover{
+
+    opacity:.6;
+
+}
+
+
+
+/* =========================================
+   サイドメニュー
+========================================= */
+
+#sideMenu{
+
+    position:fixed;
+
+    left:-280px;
+
+    top:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:8px 0 35px rgba(0,0,0,.08);
+
+    transition:.45s;
+
+    z-index:999;
+
+    padding-top:90px;
+
+}
+
+
+#sideMenu.open{
+
+    left:0;
+
+}
+
+
+
+/* ---------- メニュータイトル ---------- */
+
+.menu-header{
+
+    position:absolute;
+
+    top:28px;
+
+    left:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.menu-header h2{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:30px;
+
+    color:#7d6958;
+
+    font-weight:600;
+
+    margin:0;
+
+}
+
+/* =========================================
+   メニューリンク
+========================================= */
+
+#sideMenu a{
+
+    display:block;
+
+    padding:18px 35px;
+
+    color:#666;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:all .3s ease;
+
+}
+
+
+#sideMenu a:hover{
+
+    color:#af8c8e;
+
+    background:#fff3eb;
+
+    padding-left:45px;
+
+}
+
+
+
+/* =========================================
+   オーバーレイ
+========================================= */
+
+#overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.18);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.4s;
+
+    z-index:998;
+
+}
+
+
+#overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+
+/* =========================================
+   アニメーション
+========================================= */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+@keyframes bgZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+
+
+/* =========================================
+   スクロール矢印（今後追加用）
+========================================= */
+
+.scroll{
+
+    position:absolute;
+
+    bottom:35px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    color:#999;
+
+    animation:float 2.5s infinite;
+
+}
+
+
+
+/* =========================================
+   タブレット
+========================================= */
+
+@media (max-width:900px){
+
+    .phone{
+
+        width:360px;
+
+        height:720px;
+
+        padding:40px;
+
+    }
+
+    .phone h1{
+
+        font-size:48px;
+
+    }
+
+    .logo{
+
+        width:90px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   スマホ
+========================================= */
+
+@media (max-width:600px){
+
+    body{
+
+        overflow:auto;
+
+    }
+
+    .wrapper{
+
+        padding:0;
+
+    }
+
+    .phone{
+
+        width:100%;
+
+        min-height:100vh;
+
+        height:auto;
+
+        border-radius:0;
+
+        box-shadow:none;
+
+        padding:60px 30px;
+
+    }
+
+    .logo{
+
+        width:100px;
+
+        margin-bottom:25px;
+
+    }
+
+    .phone h1{
+
+        font-size:42px;
+
+    }
+
+    .flower{
+
+        font-size:20px;
+
+    }
+
+    .catch{
+
+        font-size:15px;
+
+        line-height:1.9;
+
+    }
+
+    .menu-btn{
+
+        top:20px;
+
+        left:20px;
+
+        font-size:16px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   PCワイド画面
+========================================= */
+
+@media (min-width:1400px){
+
+    .phone{
+
+        width:420px;
+
+        height:800px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   メニューのフェード
+========================================= */
+
+#sideMenu a{
+
+    opacity:0;
+
+    transform:translateX(-15px);
+
+    animation:menuFade .5s forwards;
+
+}
+
+#sideMenu.open a:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+#sideMenu.open a:nth-child(3){
+
+    animation-delay:.14s;
+
+}
+
+#sideMenu.open a:nth-child(4){
+
+    animation-delay:.20s;
+
+}
+
+#sideMenu.open a:nth-child(5){
+
+    animation-delay:.26s;
+
+}
+
+
+
+@keyframes menuFade{
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* =========================================
+   ロゴホバー
+========================================= */
+
+.logo{
+
+    transition:.4s;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* =========================================
+   カードホバー
+========================================= */
+
+.phone{
+
+    transition:.4s ease;
+
+}
+
+.phone:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.15),
+        0 10px 25px rgba(0,0,0,.08);
+
+}
+
+/* 閉じるボタン */
+
+.close-btn{
+
+    position:absolute;
+
+    bottom:40px;
+
+    left:30px;
+
+    width:190px;
+
+    padding:12px 0;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#af8c8e;
+
+    color:white;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.close-btn:hover{
+
+    background:#af8c8e;
+
+}

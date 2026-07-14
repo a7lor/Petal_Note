@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Petal Note | Record</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="record.css">
+
+
+</head>
+
+
+<body>
+
+
+<!-- ===== 背景 ===== -->
+
+<div class="background"></div>
+
+
+
+<!-- ===== ハンバーガーボタン ===== -->
+
+<button id="menuBtn" class="menu-btn">
+
+    ☰
+
+</button>
+
+
+
+<!-- ===== オーバーレイ ===== -->
+
+<div id="overlay"></div>
+
+
+
+<!-- ===== サイドメニュー ===== -->
+
+<nav id="sideMenu">
+
+
+    <div class="menu-header">
+
+        <h2>Petal Note</h2>
+
+    </div>
+
+
+    <a href="index.html">Home</a>
+
+    <a href="record.html">Record</a>
+
+    <a href="stamp.html">Stamp Book</a>
+
+    <a href="mypage.html">My Page</a>
+
+
+    <button id="closeBtn" class="close-btn">
+
+        CLOSE
+
+    </button>
+
+
+</nav>
+
+
+
+
+<!-- ===== メイン ===== -->
+
+
+<main class="container">
+
+
+    <h1 class="title">
+
+    Record
+
+    </h1>
+
+
+
+    <p class="subtitle">
+
+        花の写真を選択してください
+
+    </p>
+
+
+
+
+    <div class="button-group">
+
+
+
+        <!-- カメラ -->
+
+        <button class="action-btn" id="cameraBtn">
+
+            写真を撮る
+
+        </button>
+
+
+        <input
+        type="file"
+        id="cameraInput"
+        accept="image/*"
+        capture="environment"
+        hidden>
+
+
+
+
+        <!-- 写真選択 -->
+
+        <button class="action-btn" id="galleryBtn">
+
+            写真から選ぶ
+
+        </button>
+
+
+        <input
+        type="file"
+        id="galleryInput"
+        accept="image/*"
+        hidden>
+
+
+
+
+        <!-- フォルダ -->
+
+        <button class="action-btn" id="folderBtn">
+
+            フォルダを選択
+
+        </button>
+
+
+        <input
+        type="file"
+        id="folderInput"
+        webkitdirectory
+        multiple
+        hidden>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- ===== プレビュー ===== -->
+
+
+    <div class="preview-box">
+
+
+        <img id="previewImage">
+
+
+    </div>
+
+
+
+
+
+    <!-- ===== OK ===== -->
+
+
+    <button id="okBtn" class="ok-btn">
+
+        OK
+
+    </button>
+
+
+
+</main>
+
+
+
+
+
+<script>
+
+
+// ===== メニュー =====
+
+
+const menu = document.getElementById("sideMenu");
+
+const button = document.getElementById("menuBtn");
+
+const overlay = document.getElementById("overlay");
+
+const closeBtn = document.getElementById("closeBtn");
+
+
+
+button.addEventListener("click",()=>{
+
+
+    menu.classList.add("open");
+
+
+    overlay.classList.add("show");
+
+
+    button.style.display="none";
+
+
+});
+
+
+
+
+
+closeBtn.addEventListener("click",()=>{
+
+
+    menu.classList.remove("open");
+
+
+    overlay.classList.remove("show");
+
+
+    button.style.display="block";
+
+
+});
+
+
+
+
+
+overlay.addEventListener("click",()=>{
+
+
+    menu.classList.remove("open");
+
+
+    overlay.classList.remove("show");
+
+
+    button.style.display="block";
+
+
+});
+
+
+
+
+
+
+
+// ===== 写真読み込み =====
+
+
+const previewImage =
+document.getElementById("previewImage");
+
+
+const okBtn =
+document.getElementById("okBtn");
+
+
+
+
+
+function showImage(file){
+
+
+    if(!file) return;
+
+
+
+    const reader = new FileReader();
+
+
+
+    reader.onload=function(e){
+
+
+        previewImage.src =
+        e.target.result;
+
+
+
+        previewImage.style.display =
+        "block";
+
+
+
+        okBtn.style.display =
+        "inline-block";
+
+
+    };
+
+
+
+    reader.readAsDataURL(file);
+
+
+}
+
+
+
+
+
+// ===== ボタン =====
+
+
+
+document.getElementById("cameraBtn")
+.addEventListener("click",()=>{
+
+
+    document.getElementById("cameraInput").click();
+
+
+});
+
+
+
+
+
+document.getElementById("galleryBtn")
+.addEventListener("click",()=>{
+
+
+    document.getElementById("galleryInput").click();
+
+
+});
+
+
+
+
+
+document.getElementById("folderBtn")
+.addEventListener("click",()=>{
+
+
+    document.getElementById("folderInput").click();
+
+
+});
+
+
+
+
+
+
+
+// ===== ファイル取得 =====
+
+
+
+document.getElementById("cameraInput")
+.addEventListener("change",function(e){
+
+
+    showImage(e.target.files[0]);
+
+
+});
+
+
+
+
+
+document.getElementById("galleryInput")
+.addEventListener("change",function(e){
+
+
+    showImage(e.target.files[0]);
+
+
+});
+
+
+
+
+
+document.getElementById("folderInput")
+.addEventListener("change",function(e){
+
+
+    showImage(e.target.files[0]);
+
+
+});
+
+
+
+
+
+
+// ===== OK =====
+
+
+
+okBtn.addEventListener("click",()=>{
+
+
+    window.location.href="date.html";
+
+
+});
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

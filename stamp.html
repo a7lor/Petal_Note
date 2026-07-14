@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Petal Note | Stamp Book</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="stamp.css">
+
+
+</head>
+
+
+<body>
+
+
+<!-- ===== 背景 ===== -->
+
+<div class="background"></div>
+
+
+
+
+<!-- ===== ハンバーガー ===== -->
+
+
+<button id="menuBtn" class="menu-btn">
+
+☰
+
+</button>
+
+
+
+
+<!-- ===== オーバーレイ ===== -->
+
+
+<div id="overlay"></div>
+
+
+
+
+
+<!-- ===== サイドメニュー ===== -->
+
+
+<nav id="sideMenu">
+
+
+<div class="menu-header">
+
+<h2>Petal Note</h2>
+
+</div>
+
+
+
+<a href="index.html">Home</a>
+
+<a href="record.html">Record</a>
+
+<a href="stamp.html">Stamp Book</a>
+
+<a href="mypage.html">My Page</a>
+
+
+
+
+<button id="closeBtn" class="close-btn">
+
+CLOSE
+
+</button>
+
+
+</nav>
+
+
+
+
+
+
+
+<!-- ===== メイン ===== -->
+
+
+<main class="container">
+
+
+
+<h1 class="title">
+
+Stamp Book
+
+</h1>
+
+
+
+
+<p class="sub">
+
+集めた花がここに記録されます
+
+</p>
+
+
+
+
+
+
+<div id="stampGrid" class="stamp-grid">
+
+
+<!-- JavaScript生成 -->
+
+
+</div>
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<script>
+
+
+const menu =
+document.getElementById("sideMenu");
+
+
+const button =
+document.getElementById("menuBtn");
+
+
+const overlay =
+document.getElementById("overlay");
+
+
+const closeBtn =
+document.getElementById("closeBtn");
+
+
+
+button.addEventListener("click",()=>{
+
+
+menu.classList.add("open");
+
+
+overlay.classList.add("show");
+
+
+button.style.display="none";
+
+
+});
+
+
+
+
+
+closeBtn.addEventListener("click",()=>{
+
+
+menu.classList.remove("open");
+
+
+overlay.classList.remove("show");
+
+
+button.style.display="block";
+
+
+});
+
+
+
+
+
+overlay.addEventListener("click",()=>{
+
+
+menu.classList.remove("open");
+
+
+overlay.classList.remove("show");
+
+
+button.style.display="block";
+
+
+});
+
+
+</script>
+
+
+
+
+
+<script src="stamp.js"></script>
+
+
+
+</body>
+
+</html>
