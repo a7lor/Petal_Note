@@ -35,7 +35,7 @@ const flowers = [
 
     {
         name:"たんぽぽ",
-        image:"images/tanpopo.PNG"
+        image:"images/tan.PNG"
     },
 
     {
@@ -45,22 +45,17 @@ const flowers = [
 
     {
         name:"コスモス",
-        image:"images/cosmos.PNG"
-    },
-
-    {
-        name:"バラ",
-        image:"images/rose.PNG"
+        image:"images/kos.PNG"
     },
 
     {
         name:"スズラン",
-        image:"images/suzuran.PNG"
+        image:"images/suzurann.PNG"
     },
 
     {
         name:"チューリップ",
-        image:"images/tulip.PNG"
+        image:"images/tyu.PNG"
     },
 
     {
