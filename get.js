@@ -17,17 +17,15 @@ const flowerImages = {
 
     "菜の花":"images/nanohana.PNG",
 
-    "たんぽぽ":"images/tanpopo.PNG",
+    "たんぽぽ":"images/tan.PNG",
 
     "ネモフィラ":"images/nemo.PNG",
 
-    "コスモス":"images/cosmos.PNG",
+    "コスモス":"images/kos.PNG",
 
-    "バラ":"images/rose.PNG",
+    "スズラン":"images/suzurann.PNG",
 
-    "スズラン":"images/suzuran.PNG",
-
-    "チューリップ":"images/tulip.PNG",
+    "チューリップ":"images/tyu.PNG",
 
     "スミレ":"images/sumire.PNG"
 
